@@ -22,7 +22,6 @@ node ('slave') {
         	}
     }
     
-    
     stage('Image-Scanner - Aqua') {
         build 'Security-Image-Aqua'
     }
