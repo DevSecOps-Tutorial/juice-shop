@@ -10,8 +10,8 @@ node ('slave') {
         app = docker.build("devsecopstutorial/juice-shop")
     }
     
-    stage('Push Image to DockerHub') {
-        sh 'echo Pushing Image to DockerHub'
+    stage('Deploy Docker Image to DockerHub') {
+        sh 'echo Deploying Docker Image to DockerHub'
         docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
             app.push("Jenkins")
             }
