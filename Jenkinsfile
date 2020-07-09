@@ -11,7 +11,7 @@ node ('slave') {
     }
     
     stage('Push Image to DockerHub') {
-        sh 'Pushing Image to DockerHub'
+        sh 'echo Pushing Image to DockerHub'
         docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
             app.push("latest")
             }
