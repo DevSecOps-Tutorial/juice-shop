@@ -14,7 +14,7 @@ node ('slave') {
         sh 'Pushing Image to DockerHub'
         docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
             app.push("Jenkins")
-        	}
+            }
     }
 
     stage('Build the Application') {
