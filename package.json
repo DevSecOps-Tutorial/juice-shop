@@ -158,8 +158,7 @@
     "unzipper": "0.9.15",
     "winston": "^3.2.1",
     "yaml-schema-validator": "^1.1.9",
-    "z85": "^0.0.2",
-    "@projectwallace/css-analyzer": "projectwallace/css-analyzer#029d4a8f77f579d4086cfd213ae33289e7eade8f"
+    "z85": "^0.0.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
