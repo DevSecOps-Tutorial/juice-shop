@@ -5,9 +5,9 @@ node ('slave') {
         checkout scm
     }  
     
-    stage('SCA - Snyk Tool'){
+    /*stage('SCA - Snyk Tool'){
         build 'Security-SCA-Snyk'
-    }
+    }*/
     
     stage('SAST - SonarQube'){
         build 'Security-SAST-SonarQube'
