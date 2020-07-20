@@ -1,5 +1,5 @@
 node ('slave') {  
-    def webapp
+    def web
     stage('Clone Git Repository') {
         sh 'echo Cloning Git Repository'
         checkout scm
@@ -15,7 +15,7 @@ node ('slave') {
 
     stage('Build Docker Image') {
         sh 'echo Building Docker Image'
-        webapp = docker.build("devsecopstutorial/juice-shop")
+        web = docker.build("devsecopstutorial/juice-shop")
     }
     
     stage('Deploy Docker Image to DockerHub') {
