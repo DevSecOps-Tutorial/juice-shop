@@ -3,6 +3,14 @@ node ('slave') {
     stage('Clone Git Repository') {
         sh 'echo Cloning Git Repository'
         checkout scm
+    }  
+    
+    stage('SCA - Snyk Tool'){
+        build 'Security-SCA-Snyk'
+    }
+    
+    stage('SAST - SonarQube'){
+        build 'Security-SAST-SonarQube'
     }
 
     stage('Build Docker Image') {
@@ -16,10 +24,25 @@ node ('slave') {
             app.push("Jenkins")
             }
     }
-
+    
+    stage('Image-Scanner - Aqua') {
+        build 'Security-Image-Aqua'
+    }
+    
+    stage('Image-Scanner - Anchore') {
+        build 'Security-Image-Anchore'
+    }
+    
     stage('Build the Application') {
-         sh 'echo Building the Application'
          sh "docker-compose down"
          sh "docker-compose up -d"
+    }
+    
+    stage('DAST - OWASP_ZAP') {
+        build 'Security-DAST-OWASP_ZAP'
+    }
+    
+    stage('DAST - Arachni') {
+        build 'Security-DAST-Arachni'
     }
 }
